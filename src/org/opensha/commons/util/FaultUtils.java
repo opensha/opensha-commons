@@ -55,7 +55,8 @@ public final class FaultUtils {
 	private static final String S2 = C + ": assertValidDip(): ";
 	/** debugging string */
 	private static final String S3 = C + ": assertValidRake(): ";
-
+	/** debugging string */
+	private static final String S4 = C + ": assertValidRegime(): ";
 
 
 	/**
@@ -135,6 +136,22 @@ public final class FaultUtils {
 				"Rake angle cannot be greater than 180"
 				);
 			}
+	
+	/**
+	 * Checks that the rake angle fits within the definition<p>
+	 * <code>-180 <= rake <= 180</code><p>
+	 * @param rake                      Angle to validate
+	 * @throws InvalidRangeException    Thrown if not valid angle
+	 */
+	public static void assertValidRegime(String regime)
+			throws InvalidRangeException
+			{
+
+		if(!(regime.equalsIgnoreCase("crustal")||regime.equalsIgnoreCase("interface"))) throw new InvalidRangeException( S4 +
+				"regime must be either crustal or interface"
+				); // alternately one can use str.matches("val1|val2|val3"))
+			}
+	
 	
 	/**
 	 * Returns the given angle in the range <code>-180 <= rake <= 180</code>
