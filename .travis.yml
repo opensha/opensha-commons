@@ -1,5 +1,0 @@
-language: java
-
-script:
-  - echo "running standard tests"; ./gradlew test
-  - if [[ "$TRAVIS_EVENT_TYPE" == "cron" ]]; then echo "running operational tests"; ./gradlew testOperational; fi
